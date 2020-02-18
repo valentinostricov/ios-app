@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>931624531634-rpqsgvrk9p7e4n9ougn44cohciptj30e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.931624531634-rpqsgvrk9p7e4n9ougn44cohciptj30e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyARgkHGUBWlZEmep2n-10fbXVQ4T3fs79c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>931624531634</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>md.rompetrol.iosapp</string>
+	<key>PROJECT_ID</key>
+	<string>rompetrol-md</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rompetrol-md.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:931624531634:ios:d26b4b56d0d1fc25513bab</string>
+	<key>DATABASE_URL</key>
+	<string>https://rompetrol-md.firebaseio.com</string>
+</dict>
+</plist>

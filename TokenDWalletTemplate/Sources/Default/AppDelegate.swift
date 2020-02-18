@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ) -> Bool {
         
         //To enable crash reporting - add GoogleService-Info.plist into the project
-        //FirebaseApp.configure()
+        FirebaseApp.configure()
         
         self.rootNavigationController = RootNavigationViewController()
         

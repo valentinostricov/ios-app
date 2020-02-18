@@ -48,7 +48,7 @@ class SignedInFlowController: BaseSignedInFlowController {
         self.onLocalAuthRecoverySucceeded = onLocalAuthRecoverySucceeded
         
         SideMenuController.preferences.drawing.menuButtonImage = Assets.menuIcon.image
-        SideMenuController.preferences.drawing.menuButtonWidth = 35
+//        SideMenuController.preferences.drawing.menuButtonWidth = 35
         SideMenuController.preferences.drawing.centerPanelShadow = true
         SideMenuController.preferences.animating.statusBarBehaviour = .horizontalPan
         SideMenuController.preferences.animating.transitionAnimator = nil

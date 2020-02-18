@@ -29,8 +29,9 @@ def main_app_pods
   pod 'Firebase/Core'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Firebase/Analytics'
   
-  pod 'SideMenuController', git: 'https://github.com/tokend/SideMenuController.git'
+  pod 'SideMenuController', git: 'https://github.com/cjlarsen/SideMenuController.git'
   pod 'Charts', git: 'https://github.com/tokend/Charts.git'
   pod 'Floaty', git: 'https://github.com/tokend/Floaty.git'
   pod 'UICircularProgressRing'
@@ -50,15 +51,15 @@ target 'TokenDWalletTemplate' do
     #   end
     # end
 
-    swift3Targets = ['SideMenuController']
+    # swift3Targets = ['SideMenuController']
 
-    installer.pods_project.targets.each do |target|
-      next unless swift3Targets.include? target.name
+    # installer.pods_project.targets.each do |target|
+    #   next unless swift3Targets.include? target.name
 
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '3.2'
-      end
-    end
+    #   target.build_configurations.each do |config|
+    #     config.build_settings['SWIFT_VERSION'] = '3.2'
+    #   end
+    # end
     
     swift4Targets = ['QRCodeReader.swift', 'ActionsList']
     
