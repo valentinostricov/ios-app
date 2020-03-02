@@ -100,6 +100,8 @@ extension TabBarContainer {
         
         private func setupTabBar() {
             guard let tabBar = self.tabBar?.view else { return }
+            (tabBar as? UITabBar)?.barTintColor = Theme.Colors.textOnContentBackgroundColor
+            (tabBar as? UITabBar)?.isTranslucent = false
             self.view.addSubview(tabBar)
             self.layoutTabBar()
             self.updateSubviews()

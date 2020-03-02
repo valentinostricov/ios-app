@@ -56,6 +56,7 @@ extension BalancesList {
                 self.balanceLabel.font = Theme.Fonts.largeAssetFont
                 self.balanceLabel.numberOfLines = 0
                 self.balanceLabel.textAlignment = .center
+                self.balanceLabel.textColor = Theme.Colors.mainTextColor
             }
             
             private func setupLayout() {

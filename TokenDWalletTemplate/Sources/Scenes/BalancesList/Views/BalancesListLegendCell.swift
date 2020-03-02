@@ -99,11 +99,12 @@ extension BalancesList {
                 self.assetNameLabel.backgroundColor = Theme.Colors.contentBackgroundColor
                 self.assetNameLabel.numberOfLines = 1
                 self.assetNameLabel.lineBreakMode = .byTruncatingMiddle
+                self.assetNameLabel.textColor = Theme.Colors.mainTextColor
             }
             
             private func setupBalanceLabel() {
                 self.balanceLabel.backgroundColor = Theme.Colors.contentBackgroundColor
-                self.balanceLabel.textColor = Theme.Colors.separatorOnMainColor
+                self.balanceLabel.textColor = Theme.Colors.mainTextColor //Theme.Colors.separatorOnMainColor
                 self.balanceLabel.font = Theme.Fonts.smallTextFont
             }
             

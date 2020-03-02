@@ -58,7 +58,6 @@ extension BalancesList {
             
             // MARK: - Private properties
             
-            private let nameLabel: UILabel = UILabel()
             private let codeLabel: UILabel = UILabel()
             private let balanceLabel: UILabel = UILabel()
             
@@ -78,7 +77,7 @@ extension BalancesList {
                 super.init(style: style, reuseIdentifier: reuseIdentifier)
                 
                 self.setupView()
-                self.setupNameLabel()
+                self.setupCodeLabel()
                 self.setupBalanceLabel()
                 self.setupIconView()
                 self.setupAbbreviationView()
@@ -113,14 +112,16 @@ extension BalancesList {
                 self.selectionStyle = .none
             }
             
-            private func setupNameLabel() {
-                self.nameLabel.backgroundColor = Theme.Colors.contentBackgroundColor
-                self.nameLabel.font = Theme.Fonts.plainTextFont
+            private func setupCodeLabel() {
+                self.codeLabel.backgroundColor = Theme.Colors.contentBackgroundColor
+                self.codeLabel.font = Theme.Fonts.plainTextFont
+                self.codeLabel.textColor = Theme.Colors.mainTextColor
             }
             
             private func setupBalanceLabel() {
                 self.balanceLabel.backgroundColor = Theme.Colors.contentBackgroundColor
                 self.balanceLabel.font = Theme.Fonts.plainTextFont
+                self.balanceLabel.textColor = Theme.Colors.mainTextColor
             }
             
             private func setupIconView() {
