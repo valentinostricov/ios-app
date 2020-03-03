@@ -146,11 +146,13 @@ extension RegisterScene {
                 make.width.equalTo(self.snp.width)
             }
             self.actionButton.snp.makeConstraints { (make) in
-                make.leading.trailing.equalToSuperview().inset(self.marginInset)
+                make.leading.trailing.equalToSuperview().inset(100)
                 make.top.equalTo(self.fieldsContainerView.snp.bottom).offset(self.marginInset)
                 make.height.equalTo(buttonHeight)
                 make.bottom.equalToSuperview().priority(.medium)
             }
+            self.actionButton.layer.cornerRadius = 20
+            self.actionButton.layer.masksToBounds = true
         }
         
         private func setupFieldView(_ fieldView: FieldView, field: Field) {
@@ -303,7 +305,7 @@ extension RegisterScene {
                 
                 self.scrollView.addSubview(subActionView)
                 subActionView.snp.makeConstraints { (make) in
-                    make.leading.trailing.equalTo(self.actionButton)
+                    make.leading.trailing.equalToSuperview().inset(self.marginInset)
                     make.height.equalTo(40.0)
                     make.top.equalTo(prevView.snp.bottom).offset(5.0)
                 }
