@@ -110,7 +110,7 @@ extension BalanceHeaderWithPicker {
         }
         
         private func setupBackgroundView() {
-            self.backgroundView.backgroundColor = Theme.Colors.mainColor
+            self.backgroundView.backgroundColor = Theme.Colors.contentBackgroundColor
         }
         
         private func setupLabelsStackView() {

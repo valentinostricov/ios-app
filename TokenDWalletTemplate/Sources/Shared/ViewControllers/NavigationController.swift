@@ -99,12 +99,12 @@ class NavigationController: UINavigationController {
     
     private func customInit() {
         self.navigationBar.isTranslucent = false
-        self.navigationBar.barTintColor = Theme.Colors.mainColor
-        self.navigationBar.tintColor = Theme.Colors.textOnMainColor
+        self.navigationBar.barTintColor = Theme.Colors.contentBackgroundColor
+        self.navigationBar.tintColor = Theme.Colors.textOnContentBackgroundColor
         
         self.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.font: Theme.Fonts.navigationBarBoldFont,
-            NSAttributedString.Key.foregroundColor: Theme.Colors.textOnMainColor
+            NSAttributedString.Key.foregroundColor: Theme.Colors.textOnContentBackgroundColor
         ]
         self.navigationBar.shadowImage = UIImage()
     }

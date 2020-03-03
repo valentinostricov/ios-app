@@ -67,13 +67,13 @@ extension SideMenu {
         
         private func setupTitleLabel() {
             self.titleLabel.backgroundColor = UIColor.clear
-            self.titleLabel.textColor = Theme.Colors.textOnMainColor
+            self.titleLabel.textColor = Theme.Colors.textOnContentBackgroundColor
             self.titleLabel.font = Theme.Fonts.largeTitleFont
         }
         
         private func setupSubTitleLabel() {
             self.subTitleLabel.backgroundColor = UIColor.clear
-            self.subTitleLabel.textColor = Theme.Colors.textOnMainColor
+            self.subTitleLabel.textColor = Theme.Colors.textOnContentBackgroundColor
             self.subTitleLabel.font = Theme.Fonts.plainTextFont
         }
         

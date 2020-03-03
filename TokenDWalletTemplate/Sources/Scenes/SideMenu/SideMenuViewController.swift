@@ -59,7 +59,7 @@ extension SideMenu {
         }
         
         private func setupView() {
-            self.view.backgroundColor = Theme.Colors.mainColor
+            self.view.backgroundColor = Theme.Colors.contentBackgroundColor
     
             self.setupHeaderView()
             self.setupSeparatorView()

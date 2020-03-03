@@ -4,8 +4,8 @@ enum SharedViewsBuilder {
     
     // MARK: -
     
-    public static func configureActionButton(_ button: UIButton, title: String? = nil) {
-        let buttonImage = UIImage.resizableImageWithColor(Theme.Colors.actionButtonColor)
+    public static func configureActionButton(_ button: UIButton, title: String? = nil, color: UIColor = Theme.Colors.actionButtonColor) {
+        let buttonImage = UIImage.resizableImageWithColor(color)
         button.setBackgroundImage(buttonImage, for: .normal)
         button.setTitleColor(Theme.Colors.actionTitleButtonColor, for: .normal)
         button.titleLabel?.font = Theme.Fonts.actionButtonFont

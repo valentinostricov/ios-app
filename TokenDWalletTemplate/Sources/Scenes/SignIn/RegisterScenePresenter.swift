@@ -44,8 +44,8 @@ extension RegisterScene {
             switch sceneModel.state {
                 
             case .signIn, .localAuth:
-                title = Localized(.sign_in)
-                actionTitle = Localized(.signin)
+                title = Localized(.log_in)
+                actionTitle = Localized(.log_in)
                 
             case .signUp:
                 title = Localized(.sign_up)
@@ -166,7 +166,7 @@ extension RegisterScene {
                 string: plainPart,
                 attributes: [
                     NSAttributedString.Key.font: Theme.Fonts.plainTextFont,
-                    NSAttributedString.Key.foregroundColor: Theme.Colors.textOnContentBackgroundColor
+                    NSAttributedString.Key.foregroundColor: Theme.Colors.textOnMainColor
                 ]
             ))
             
@@ -174,7 +174,7 @@ extension RegisterScene {
                 string: actionPart,
                 attributes: [
                     NSAttributedString.Key.font: Theme.Fonts.plainTextFont,
-                    NSAttributedString.Key.foregroundColor: Theme.Colors.actionButtonColor,
+                    NSAttributedString.Key.foregroundColor: Theme.Colors.textOnMainColor,
                     NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
                 ]
             ))

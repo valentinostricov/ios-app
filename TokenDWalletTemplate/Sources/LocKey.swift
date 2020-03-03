@@ -271,6 +271,7 @@ enum LocKey: String {
     case last_name
     case loading
     case locked
+    case log_in
     case lower_bound
     case main_title
     case manage_asset_pair

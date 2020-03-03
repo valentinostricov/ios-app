@@ -51,7 +51,7 @@ extension RegisterScene {
         }
         
         private func customInit() {
-            self.backgroundColor = Theme.Colors.contentBackgroundColor
+            self.backgroundColor = Theme.Colors.mainColor
             
             self.setupScrollView()
             self.setupTitle()
@@ -106,12 +106,12 @@ extension RegisterScene {
         private func setupTitle() {
             self.titleLabel.textAlignment = .center
             self.titleLabel.font = Theme.Fonts.largeTitleFont
-            self.titleLabel.textColor = Theme.Colors.textOnContentBackgroundColor
-            self.titleLabel.text = Localized(.signin)
+            self.titleLabel.textColor = Theme.Colors.textOnMainColor
+            self.titleLabel.text = Localized(.log_in)
         }
         
         private func setupActionButton() {
-            SharedViewsBuilder.configureActionButton(self.actionButton)
+            SharedViewsBuilder.configureActionButton(self.actionButton, color: .red)
             self.actionButton
                 .rx
                 .controlEvent(.touchUpInside)
