@@ -111,6 +111,8 @@ extension BalancesList {
                 self.pieChart.drawEntryLabelsEnabled = false
                 self.pieChart.legend.enabled = false
                 self.pieChart.delegate = self
+                self.pieChart.holeRadiusPercent = 0.98
+                self.pieChart.holeColor = nil
             }
             
             private func setupLegendTableView() {
