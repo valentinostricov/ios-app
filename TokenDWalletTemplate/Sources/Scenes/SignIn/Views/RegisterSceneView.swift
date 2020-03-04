@@ -24,6 +24,7 @@ extension RegisterScene {
         private let fieldsContainerView: UIView = UIView()
         private let actionButton: UIButton = UIButton(type: .custom)
         private var subActionViews: [UIView] = []
+        private let copyrightLabel: UILabel = UILabel()
         
         private let disposeBag = DisposeBag()
         
@@ -55,6 +56,7 @@ extension RegisterScene {
             
             self.setupScrollView()
             self.setupTitle()
+            self.setupCopyright()
             self.setupActionButton()
             self.setupLayout()
         }
@@ -110,6 +112,13 @@ extension RegisterScene {
             self.titleLabel.text = Localized(.log_in)
         }
         
+        private func setupCopyright() {
+            self.copyrightLabel.textAlignment = .center
+            self.copyrightLabel.font = Theme.Fonts.plainBoldTextFont
+            self.copyrightLabel.textColor = Theme.Colors.textOnMainColor
+            self.copyrightLabel.text = "Powered by HanseCoin & Distributed Lab"
+        }
+        
         private func setupActionButton() {
             SharedViewsBuilder.configureActionButton(
                 self.actionButton,
@@ -123,6 +132,8 @@ extension RegisterScene {
                     self?.onActionButton?()
                 })
                 .disposed(by: self.disposeBag)
+            self.actionButton.layer.cornerRadius = 20
+            self.actionButton.layer.masksToBounds = true
         }
         
         private func setupLayout() {
@@ -130,6 +141,7 @@ extension RegisterScene {
             self.scrollView.addSubview(self.titleLabel)
             self.scrollView.addSubview(self.fieldsContainerView)
             self.scrollView.addSubview(self.actionButton)
+            self.scrollView.addSubview(self.copyrightLabel)
             
             let titleOffset: CGFloat = 30.0
             let buttonHeight: CGFloat = 44.0
@@ -154,8 +166,11 @@ extension RegisterScene {
                 make.height.equalTo(buttonHeight)
                 make.bottom.equalToSuperview().priority(.medium)
             }
-            self.actionButton.layer.cornerRadius = 20
-            self.actionButton.layer.masksToBounds = true
+            
+            self.copyrightLabel.snp.makeConstraints { (make) in
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(self.snp.bottom).inset(40)
+            }
         }
         
         private func setupFieldView(_ fieldView: FieldView, field: Field) {
