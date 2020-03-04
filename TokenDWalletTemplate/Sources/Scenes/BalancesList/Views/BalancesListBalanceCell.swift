@@ -68,8 +68,8 @@ extension BalancesList {
             private let separator: UIView = UIView()
             
             private let sideInset: CGFloat = 20.0
-            private let topInset: CGFloat = 15.0
-            private let iconSize: CGFloat = 60.0
+            private let topInset: CGFloat = 10.0
+            private let iconSize: CGFloat = 50.0
             
             // MARK: -
             
@@ -180,7 +180,7 @@ extension BalancesList {
                 }
                 
                 self.separator.snp.makeConstraints { (make) in
-                    make.leading.equalTo(self.codeLabel)
+                    make.leading.equalTo(self.abbreviationLabel)
                     make.trailing.bottom.equalToSuperview()
                     make.height.equalTo(1.0 / UIScreen.main.scale)
                 }

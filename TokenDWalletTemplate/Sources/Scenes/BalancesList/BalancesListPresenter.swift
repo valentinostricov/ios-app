@@ -82,7 +82,7 @@ extension BalancesList {
                 
                 let balance = self.amountFormatter.formatAmount(
                     cell.balance,
-                    currency: convertedAsset
+                    currency: "" //convertedAsset
                 )
                 
                 if let cellIndex = cells.indexOf(cell) {
@@ -113,17 +113,17 @@ extension BalancesList.Presenter: BalancesList.PresentationLogic {
                 case .balance(let balanceModel):
                     let balance = self.amountFormatter.formatAmount(
                         balanceModel.balance,
-                        currency: balanceModel.code
+                        currency: "" //balanceModel.code
                     )
                     
                     let abbreviationBackgroundColor = TokenColoringProvider.shared.coloringForCode(balanceModel.code)
                     let abbreviation = balanceModel.code.first
                     let abbreviationText = abbreviation?.description ?? ""
                     
-                    var imageRepresentation = Model.ImageRepresentation.abbreviation
-                    if let url = balanceModel.iconUrl {
-                        imageRepresentation = .image(url)
-                    }
+                    let imageRepresentation = Model.ImageRepresentation.abbreviation
+//                    if let url = balanceModel.iconUrl {
+//                        imageRepresentation = .image(url)
+//                    }
                     let balanceViewModel = BalancesList.BalanceCell.ViewModel(
                         code: balanceModel.code,
                         imageRepresentation: imageRepresentation,
@@ -133,6 +133,7 @@ extension BalancesList.Presenter: BalancesList.PresentationLogic {
                         balanceId: balanceModel.balanceId,
                         cellIdentifier: .balances
                     )
+                    
                     return balanceViewModel
                     
                 case .header(let headerModel):
@@ -160,6 +161,7 @@ extension BalancesList.Presenter: BalancesList.PresentationLogic {
                     return chartViewModel
                 }
             })
+            
             return Model.SectionViewModel(cells: cells)
         }
         
