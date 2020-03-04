@@ -24,6 +24,8 @@ enum Assets: String {
     case fee = "Fee"
     case filledStarIcon = "Filled star icon"
     case flashLightIcon = "Flash Light icon"
+    case group33 = "Group 33"
+    case group36 = "Group 36"
     case help = "Help icon"
     case hidePasswordIcon = "Hide password icon"
     case history = "History icon"

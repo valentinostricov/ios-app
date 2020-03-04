@@ -13,6 +13,8 @@ extension RegisterScene.View {
         let textField: UITextField = UITextField()
         let actionButton: UIButton = UIButton(type: .custom)
         
+        let text_field_padding: CGFloat = 10
+        
         var titleWidth: CGFloat = 80.0 {
             didSet {
                 self.updateLabelsLayout()
@@ -78,7 +80,6 @@ extension RegisterScene.View {
             self.textField.textColor = Theme.Colors.textFieldForegroundColor
             self.textField.font = Theme.Fonts.textFieldTextFont
             self.textField.backgroundColor = .white
-            let text_field_padding: CGFloat = 10
             let view = UIView(frame: CGRect(x: 10, y: 0, width: text_field_padding, height: 0))
             self.textField.leftViewMode = .always;
             self.textField.leftView = view;
@@ -118,7 +119,8 @@ extension RegisterScene.View {
         
         private func updateLabelsLayout() {
             self.titleLabel.snp.remakeConstraints { (make) in
-                make.leading.top.equalToSuperview()
+                make.top.equalToSuperview()
+                make.leading.equalToSuperview().offset(text_field_padding)
                 make.width.equalTo(self.titleWidth)
             }
             

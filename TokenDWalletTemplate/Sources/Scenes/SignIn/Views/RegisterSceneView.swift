@@ -25,6 +25,8 @@ extension RegisterScene {
         private let actionButton: UIButton = UIButton(type: .custom)
         private var subActionViews: [UIView] = []
         private let copyrightLabel: UILabel = UILabel()
+        private let opaqueBackgroundImage = UIImageView()
+        private let iconImage = UIImageView()
         
         private let disposeBag = DisposeBag()
         
@@ -57,6 +59,8 @@ extension RegisterScene {
             self.setupScrollView()
             self.setupTitle()
             self.setupCopyright()
+            self.setupOpaqueBackgroundImage()
+            self.setupIconImage()
             self.setupActionButton()
             self.setupLayout()
         }
@@ -119,6 +123,15 @@ extension RegisterScene {
             self.copyrightLabel.text = "Powered by HanseCoin & Distributed Lab"
         }
         
+        private func setupIconImage() {
+            self.iconImage.image = Assets.group33.image
+            self.iconImage.contentMode = .scaleAspectFit
+        }
+        
+        private func setupOpaqueBackgroundImage() {
+            self.opaqueBackgroundImage.image = Assets.group36.image
+        }
+        
         private func setupActionButton() {
             SharedViewsBuilder.configureActionButton(
                 self.actionButton,
@@ -138,6 +151,8 @@ extension RegisterScene {
         
         private func setupLayout() {
             self.addSubview(self.scrollView)
+            self.scrollView.addSubview(self.opaqueBackgroundImage)
+            self.scrollView.addSubview(self.iconImage)
             self.scrollView.addSubview(self.titleLabel)
             self.scrollView.addSubview(self.fieldsContainerView)
             self.scrollView.addSubview(self.actionButton)
@@ -155,6 +170,13 @@ extension RegisterScene {
                 make.leading.trailing.equalToSuperview()
                 make.top.equalToSuperview().inset(titleOffset)
             }
+            
+            self.iconImage.snp.makeConstraints { (make) in
+                make.leading.equalToSuperview().offset(20)
+                make.centerY.equalTo(self.titleLabel.snp.centerY)
+                make.width.equalTo(40)
+            }
+            
             self.fieldsContainerView.snp.makeConstraints { (make) in
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(self.titleLabel.snp.bottom).offset(fieldsOffset)
@@ -170,6 +192,11 @@ extension RegisterScene {
             self.copyrightLabel.snp.makeConstraints { (make) in
                 make.leading.trailing.equalToSuperview()
                 make.bottom.equalTo(self.snp.bottom).inset(40)
+            }
+            
+            self.opaqueBackgroundImage.snp.makeConstraints { (make) in
+                make.trailing.equalTo(25)
+                make.top.equalTo(self.actionButton.snp.top)
             }
         }
         
