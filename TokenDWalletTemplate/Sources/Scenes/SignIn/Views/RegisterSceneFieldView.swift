@@ -48,7 +48,7 @@ extension RegisterScene.View {
         }
         
         private func customInit() {
-            self.backgroundColor = Theme.Colors.textFieldBackgroundColor
+            self.backgroundColor = .clear //Theme.Colors.textFieldBackgroundColor
             
             self.setupTitleLabel()
             self.setupTextField()
@@ -62,14 +62,14 @@ extension RegisterScene.View {
         }
         
         public override func hideError() {
-            self.titleLabel.textColor = Theme.Colors.textFieldForegroundColor
+            self.titleLabel.textColor = Theme.Colors.textOnAccentColor
         }
         
         // MARK: - Private
         
         private func setupTitleLabel() {
             self.titleLabel.textAlignment = .left
-            self.titleLabel.textColor = Theme.Colors.textFieldForegroundColor
+            self.titleLabel.textColor = Theme.Colors.textOnAccentColor
             self.titleLabel.font = Theme.Fonts.textFieldTitleFont
         }
         
@@ -77,6 +77,11 @@ extension RegisterScene.View {
             self.textField.textAlignment = .left
             self.textField.textColor = Theme.Colors.textFieldForegroundColor
             self.textField.font = Theme.Fonts.textFieldTextFont
+            self.textField.backgroundColor = .white
+            let text_field_padding: CGFloat = 10
+            let view = UIView(frame: CGRect(x: 10, y: 0, width: text_field_padding, height: 0))
+            self.textField.leftViewMode = .always;
+            self.textField.leftView = view;
         }
         
         private func setupActionButton() {
@@ -113,31 +118,34 @@ extension RegisterScene.View {
         
         private func updateLabelsLayout() {
             self.titleLabel.snp.remakeConstraints { (make) in
-                make.leading.top.bottom.equalToSuperview()
+                make.leading.top.equalToSuperview()
                 make.width.equalTo(self.titleWidth)
             }
+            
+            let title_field_indent: CGFloat = 11
             
             switch self.actionType {
                 
             case .none:
-                self.actionButton.snp.remakeConstraints { (make) in
-                    make.trailing.top.bottom.equalToSuperview()
-                    make.width.equalTo(self.actionButton.snp.height)
-                }
                 self.textField.snp.remakeConstraints { (make) in
-                    make.trailing.top.bottom.equalToSuperview()
-                    make.leading.equalTo(self.titleLabel.snp.trailing).offset(20.0)
+                    make.top.equalTo(self.titleLabel.snp.bottom).offset(title_field_indent)
+                    make.leading.trailing.equalToSuperview()
+                    make.height.equalTo(40.0)
+                }
+                self.actionButton.snp.remakeConstraints { (make) in
+                    make.trailing.top.bottom.equalTo(self.textField)
+                    make.width.equalTo(self.actionButton.snp.height)
                 }
                 
             case .hidePassword, .scanQr, .showPassword:
-                self.actionButton.snp.remakeConstraints { (make) in
-                    make.trailing.top.bottom.equalToSuperview()
-                    make.width.equalTo(self.actionButton.snp.height)
-                }
                 self.textField.snp.remakeConstraints { (make) in
-                    make.top.bottom.equalToSuperview()
-                    make.leading.equalTo(self.titleLabel.snp.trailing).offset(20.0)
-                    make.trailing.equalTo(self.actionButton.snp.leading).offset(-20.0)
+                    make.top.equalTo(self.titleLabel.snp.bottom).offset(title_field_indent)
+                    make.leading.trailing.equalToSuperview()
+                    make.height.equalTo(40.0)
+                }
+                self.actionButton.snp.remakeConstraints { (make) in
+                    make.trailing.top.bottom.equalTo(self.textField)
+                    make.width.equalTo(self.actionButton.snp.height)
                 }
             }
         }

@@ -11,7 +11,7 @@ extension RegisterScene {
         
         let marginInset: CGFloat = 20.0
         let separatorHeight: CGFloat = 1.0
-        let fieldHeight: CGFloat = 44.0
+        let fieldHeight: CGFloat = 69.0
         
         // MARK: - Private properties
         
@@ -111,7 +111,9 @@ extension RegisterScene {
         }
         
         private func setupActionButton() {
-            SharedViewsBuilder.configureActionButton(self.actionButton, color: .red)
+            SharedViewsBuilder.configureActionButton(
+                self.actionButton,
+                color: UIColor(red: 149/255, green: 36/255, blue: 80/255, alpha: 1.0))
             self.actionButton
                 .rx
                 .controlEvent(.touchUpInside)
@@ -131,6 +133,7 @@ extension RegisterScene {
             
             let titleOffset: CGFloat = 30.0
             let buttonHeight: CGFloat = 44.0
+            let fieldsOffset: CGFloat = 80.0
             
             self.scrollView.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
@@ -142,11 +145,11 @@ extension RegisterScene {
             }
             self.fieldsContainerView.snp.makeConstraints { (make) in
                 make.leading.trailing.equalToSuperview()
-                make.top.equalTo(self.titleLabel.snp.bottom).offset(titleOffset)
+                make.top.equalTo(self.titleLabel.snp.bottom).offset(fieldsOffset)
                 make.width.equalTo(self.snp.width)
             }
             self.actionButton.snp.makeConstraints { (make) in
-                make.leading.trailing.equalToSuperview().inset(100)
+                make.leading.trailing.equalToSuperview().inset(112)
                 make.top.equalTo(self.fieldsContainerView.snp.bottom).offset(self.marginInset)
                 make.height.equalTo(buttonHeight)
                 make.bottom.equalToSuperview().priority(.medium)
@@ -221,7 +224,7 @@ extension RegisterScene {
         }
         
         private func setupSeparator(_ separator: UIView) {
-            separator.backgroundColor = Theme.Colors.separatorOnContentBackgroundColor
+            separator.backgroundColor = .clear //Theme.Colors.separatorOnContentBackgroundColor
             separator.isUserInteractionEnabled = false
         }
         
@@ -245,6 +248,7 @@ extension RegisterScene {
                 make.top.equalToSuperview()
                 make.height.equalTo(self.separatorHeight)
             }
+            let fields_indent: CGFloat = 18
             for field in fields {
                 let textField = FieldView()
                 self.setupFieldView(textField, field: field)
@@ -254,7 +258,7 @@ extension RegisterScene {
                     make.leading.trailing.equalToSuperview().inset(self.marginInset)
                     make.height.equalTo(self.fieldHeight)
                     if let prevField = prevField {
-                        make.top.equalTo(prevField.snp.bottom).offset(ceil(self.separatorHeight) + 2.0)
+                        make.top.equalTo(prevField.snp.bottom).offset(ceil(self.separatorHeight) + fields_indent)
                     } else {
                         make.top.equalToSuperview().offset(ceil(self.separatorHeight) + 1.0)
                     }
