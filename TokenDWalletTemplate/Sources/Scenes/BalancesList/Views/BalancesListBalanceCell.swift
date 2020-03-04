@@ -181,7 +181,8 @@ extension BalancesList {
                 
                 self.separator.snp.makeConstraints { (make) in
                     make.leading.equalTo(self.abbreviationLabel)
-                    make.trailing.bottom.equalToSuperview()
+                    make.trailing.equalToSuperview().inset(self.sideInset)
+                    make.bottom.equalToSuperview()
                     make.height.equalTo(1.0 / UIScreen.main.scale)
                 }
             }
