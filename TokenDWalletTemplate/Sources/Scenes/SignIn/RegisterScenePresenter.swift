@@ -105,7 +105,7 @@ extension RegisterScene {
             let viewField = View.Field(
                 fieldType: field.type,
                 title: title,
-                text: text,
+                text: "tayoho3441@imail1.net", //text TODO: UNCOMMENT THIS
                 placeholder: placeholder,
                 keyboardType: keyboardType,
                 autocapitalize: autocapitalize,

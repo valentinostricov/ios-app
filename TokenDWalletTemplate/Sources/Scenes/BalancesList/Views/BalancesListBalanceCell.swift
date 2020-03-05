@@ -114,7 +114,7 @@ extension BalancesList {
             
             private func setupCodeLabel() {
                 self.codeLabel.backgroundColor = Theme.Colors.contentBackgroundColor
-                self.codeLabel.font = Theme.Fonts.plainTextFont
+                self.codeLabel.font = Theme.Fonts.plainBoldTextFont
                 self.codeLabel.textColor = Theme.Colors.mainTextColor
             }
             

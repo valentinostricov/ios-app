@@ -92,8 +92,8 @@ extension ExploreTokensScene {
             
             if #available(iOS 11, *) {
                 let searchBar = self.searchController.searchBar
-                searchBar.tintColor = Theme.Colors.contentBackgroundColor
-                searchBar.barTintColor = Theme.Colors.contentBackgroundColor
+                searchBar.tintColor = Theme.Colors.mainTextColor
+                searchBar.barTintColor = Theme.Colors.mainColor
                 
                 if let textField = searchBar.value(forKey: "searchField") as? UITextField {
                     if let backgroundView = textField.subviews.first {
