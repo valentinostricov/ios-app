@@ -170,12 +170,12 @@ enum ExploreTokensTableViewCell {
         }
         
         private func setupContainerView() {
-            self.containerView.backgroundColor = Theme.Colors.contentBackgroundColor
+//            self.containerView.backgroundColor = Theme.Colors.contentBackgroundColor
             self.containerView.layer.cornerRadius = 10.0
         }
         
         private func setupTopPartContainer() {
-            self.topPartContainer.backgroundColor = Theme.Colors.contentBackgroundColor
+//            self.topPartContainer.backgroundColor = Theme.Colors.contentBackgroundColor
             self.topPartContainer.layer.cornerRadius = 10.0
         }
         
@@ -249,7 +249,7 @@ enum ExploreTokensTableViewCell {
             self.addSubview(self.containerView)
             self.containerView.addSubview(self.topPartContainer)
             self.containerView.addSubview(self.separatorView)
-            self.containerView.addSubview(self.bottomPartContainer)
+//            self.containerView.addSubview(self.bottomPartContainer)
             
             self.topPartContainer.addSubview(self.iconContainerView)
             self.iconContainerView.addSubview(self.iconView)
@@ -270,17 +270,9 @@ enum ExploreTokensTableViewCell {
                 make.top.leading.trailing.equalToSuperview()
             }
             
-            self.bottomPartContainer.snp.makeConstraints { (make) in
-                make.bottom.leading.trailing.equalToSuperview()
-            }
-            
-            self.separatorView.snp.makeConstraints { (make) in
-                make.leading.equalTo(self.labelsStackView.snp.leading)
-                make.trailing.equalToSuperview()
-                make.top.equalTo(self.topPartContainer.snp.bottom)
-                make.bottom.equalTo(self.bottomPartContainer.snp.top)
-                make.height.equalTo(1.0 / UIScreen.main.scale)
-            }
+//            self.bottomPartContainer.snp.makeConstraints { (make) in
+//                make.bottom.leading.trailing.equalToSuperview()
+//            }
             
             let makeIconViewConstraints: (ConstraintMaker) -> Void = { [weak self] (make) in
                 make.leading.equalToSuperview().inset(15)
@@ -315,10 +307,19 @@ enum ExploreTokensTableViewCell {
             self.actionButton.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }
+            
+            self.separatorView.snp.makeConstraints { (make) in
+                make.leading.equalTo(self.abbreviationLabel)
+                make.trailing.equalToSuperview()
+                make.top.equalTo(self.topPartContainer.snp.bottom)
+                make.bottom.equalToSuperview()
+//                make.bottom.equalTo(self.bottomPartContainer.snp.top)
+                make.height.equalTo(1.0 / UIScreen.main.scale)
+            }
         }
         
         private func updateAbbreviation() {
-            if self.iconUrl == nil {
+            if true { //self.iconUrl == nil {
                 self.abbreviationLabel.text = String(self.titleString.first ?? Character("D")).uppercased()
                 self.abbreviationBackgroundView.isHidden = false
             } else {

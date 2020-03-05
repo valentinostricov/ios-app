@@ -108,7 +108,7 @@ extension ExploreTokensScene {
         private func setupEmptyLabel() { }
         
         private func setupTableView() {
-            self.tableView.backgroundColor = UIColor.clear
+            self.tableView.backgroundColor = Theme.Colors.contentBackgroundColor //UIColor.clear
             self.tableView.keyboardDismissMode = .onDrag
             self.tableView.register(classes: [ExploreTokensTableViewCell.Model.self])
             self.tableView.dataSource = self
@@ -290,15 +290,15 @@ extension ExploreTokensScene.ViewController: UITableViewDelegate {
 
 extension ExploreTokensScene.ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].cells.count
+        return self.sections.count //[section].cells.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return self.sections.count
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.sections[indexPath.section].cells[indexPath.row]
+        let model = self.sections[indexPath.row].cells[0] //[indexPath.row]
         let cell = tableView.dequeueReusableCell(with: model, for: indexPath)
         if let cell = cell as? ExploreTokensTableViewCell.View {
             cell.onActionButtonClicked = { [weak self] (_) in
